@@ -1,0 +1,92 @@
+/*Estilo para los botones*/
+.button{
+    -fx-background-color: #4CAF50; /*Fondo verde*/
+    -fx-text-fill: white; /*Texto blanco*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+    -fx-padding: 8 15; /*Espaciado interno*/
+    -fx-background-radius: 5; /*Bordes redondeados*/
+}
+
+.button:hover{
+    -fx-background-color: #45A049; /*Fondo más oscuro al pasar el ratón*/
+}
+
+.text-field{
+    -fx-border-color: #4CAF50;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+    -fx-font-size: 14px;
+}
+
+.label{
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+#mensajeLabel{
+    -fx-text-fill: #FF0000;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.table-view{
+    -fx-border-color: #4CAF50;
+    -fx-border-radius: 5;
+}
+.table-column{
+    -fx-alignment: CENTER-LEFT;
+    -fx-font-size: 14px;
+}
+
+/* Mensajes de error */
+.label-error {
+    -fx-text-fill: red;
+    -fx-background-color: #ffe6e6; /* Fondo claro */
+    -fx-padding: 5px;
+    -fx-border-color: red;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.5), 10, 0.5, 0, 0);
+}
+
+/* Tooltips */
+.tooltip {
+    -fx-background-color: #43af68;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Calibri";
+    -fx-padding: 10px;
+    -fx-background-radius: 50px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 10, 0.5, 0, 0);
+}
+
+/* Campos de entrada con transiciones */
+.text-field-error {
+    -fx-border-color: red;
+    -fx-border-width: 5px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #ffe6e6;
+    -fx-effect: dropshadow(gaussian, rgba(255,0,0,0.3), 10, 0.5, 0, 0);
+    -fx-transition: all 1 s ease-in-out;
+}
+
+.text-field-valid {
+    -fx-border-color: green;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #e6ffe6;
+    -fx-effect: dropshadow(gaussian, rgba(0,255,0,0.3), 10, 0.5, 0, 0);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* Campos de entrada enfocados */
+.text-field:focused {
+    -fx-border-color: #4a90e2;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #f0f8ff;
+    -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.5), 10, 0.5, 0, 0);
+}
