@@ -30,7 +30,7 @@ public class App {
         CuentaBancariaSincronizada cuenta2 = new CuentaBancariaSincronizada();
 
         for (int i = 0; i < iteraciones; i++) {
-            eS.execute(cuenta1::procesoCuenta);
+            eS.execute(cuenta1::procesoCuenta); // eS.execute (() -> cuenta1.procesocuenta());
             eS.execute(cuenta2::procesoCuenta);
         }
         eS.shutdown();

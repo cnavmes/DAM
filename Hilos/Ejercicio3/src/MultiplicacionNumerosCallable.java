@@ -13,7 +13,7 @@ public class MultiplicacionNumerosCallable implements Callable<Long> {
 
   @Override
   public Long call() throws Exception {
-    System.out.println("Hilo " + numHilo + " : " + num1 + " x " + num2 + " = " + num1 * num2);
+    System.out.println("Hilo " + numHilo + " : " + num1 + " x " + num2);
     return num1 * num2;
   }
 }
