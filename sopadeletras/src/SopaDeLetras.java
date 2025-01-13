@@ -1,10 +1,13 @@
+import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class SopaDeLetras {
   private char[][] tablero;
   private Tematica tematica;
   private int filas;
   private int columnas;
+  Scanner sc = new Scanner(System.in);
 
   public SopaDeLetras(int filas, int columnas, Tematica tematica) {
     this.filas = filas;
@@ -101,6 +104,28 @@ public class SopaDeLetras {
     } else if (direccion.equals("DIAGONAL")) {
       for (int i = 0; i < longitud; i++) {
         tablero[fila + i][columna + i] = palabra.charAt(i);
+      }
+    }
+  }
+
+  protected void jugar() {
+    String palabra;
+    boolean continuar = true;
+    System.out.println("Palabras a encontrar: " + Arrays.toString(tematica.getPalabras()));
+
+    while (continuar) {
+      System.out.println("Introduce una palabra (o 'me rindo para salir)");
+      palabra = sc.nextLine().trim().toUpperCase();
+
+      if (palabra.equals("ME RINDO")) {
+        System.out.println("Te has rendido");
+        continuar = false;
+      }
+      if (Arrays.asList(tematica.getPalabras()).contains(palabra)) {
+        System.out.println("Encontraste la palabra: " + palabra);
+        continuar = false;
+      } else {
+        System.out.println("Palabra no encontrada");
       }
     }
   }
