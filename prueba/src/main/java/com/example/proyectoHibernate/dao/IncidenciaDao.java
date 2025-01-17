@@ -1,11 +1,11 @@
-package com.example.prueba.dao;
-
-import com.example.prueba.model.Incidencia;
+package com.example.proyectoHibernate.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
+
+import com.example.proyectoHibernate.model.Incidencia;
 
 public class IncidenciaDao {
 

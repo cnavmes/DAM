@@ -1,4 +1,4 @@
-package com.example.prueba.dao;
+package com.example.proyectoHibernate.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

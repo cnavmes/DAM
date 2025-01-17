@@ -1,8 +1,8 @@
-package com.example.prueba.dao;
+package com.example.proyectoHibernate.dao;
 
 import java.util.List;
 
-import com.example.prueba.model.Dispositivo;
+import com.example.proyectoHibernate.model.Dispositivo;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;

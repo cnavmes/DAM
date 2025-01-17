@@ -25,6 +25,13 @@
 </dependencyManagement>
 <!-- use the versions from the platform -->
 <dependencies>
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+    </dependency>
+
     <dependency>
         <groupId>org.hibernate.orm</groupId>
         <artifactId>hibernate-core</artifactId>
@@ -39,11 +46,13 @@
         <version>3.8.1</version>
         <scope>test</scope>
     </dependency>
+    <!--
     <dependency>
         <groupId>org.mariadb.jdbc</groupId>
         <artifactId>mariadb-java-client</artifactId>
         <version>3.5.0</version>
     </dependency>
+    -->
 </dependencies>
  <build>
         <plugins>

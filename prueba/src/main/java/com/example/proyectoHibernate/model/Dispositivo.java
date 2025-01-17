@@ -1,4 +1,4 @@
-package com.example.prueba.model;
+package com.example.proyectoHibernate.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
