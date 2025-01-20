@@ -2,28 +2,32 @@ package com.example.proyectoHibernate.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-
 import java.util.List;
-
 import com.example.proyectoHibernate.model.Incidencia;
 
 public class IncidenciaDao {
 
+  private HibernateUtil hibernateUtil;
+
+  public IncidenciaDao() {
+    hibernateUtil = HibernateUtil.getInstance(); // Crear instancia de HibernateUtil
+  }
+
   // Método para obtener una incidencia por su ID
   public Incidencia obtenerPorId(int id) {
-    EntityManager entityManager = HibernateUtil.getEntityManager();
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
     return entityManager.find(Incidencia.class, id);
   }
 
   // Método para obtener todas las incidencias
   public List<Incidencia> obtenerTodos() {
-    EntityManager entityManager = HibernateUtil.getEntityManager();
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
     return entityManager.createQuery("FROM Incidencia", Incidencia.class).getResultList();
   }
 
   // Método para obtener incidencias filtradas por dispositivo y tipo
   public List<Incidencia> obtenerPorDispositivoYTipo(int dispositivoId, String tipoIncidencia) {
-    EntityManager entityManager = HibernateUtil.getEntityManager();
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
     return entityManager
         .createQuery("FROM Incidencia i WHERE i.dispositivo.id = :dispositivoId AND i.tipo = :tipoIncidencia",
             Incidencia.class)
@@ -34,7 +38,7 @@ public class IncidenciaDao {
 
   // Método para guardar una nueva incidencia
   public void guardar(Incidencia incidencia) {
-    EntityManager entityManager = HibernateUtil.getEntityManager();
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
@@ -52,7 +56,7 @@ public class IncidenciaDao {
 
   // Método para actualizar una incidencia existente
   public void actualizar(Incidencia incidencia) {
-    EntityManager entityManager = HibernateUtil.getEntityManager();
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
@@ -70,7 +74,7 @@ public class IncidenciaDao {
 
   // Método para eliminar una incidencia
   public void eliminar(Incidencia incidencia) {
-    EntityManager entityManager = HibernateUtil.getEntityManager();
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();

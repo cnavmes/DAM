@@ -8,20 +8,20 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
-            <!-- Cambia el dialecto para MySQL -->
+            
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
 
-            <!-- Cambia el driver JDBC para MySQL -->
+            
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 
-            <!-- Cambia la URL de conexión para MySQL -->
+            
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/usuarios"/>
 
-            <!-- Usuario y contraseña, usa los de tu base de datos MySQL -->
-            <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="admin123"/>
+            
+            <property name="jakarta.persistence.jdbc.user" value="${DB_USER}"/>
+            <property name="jakarta.persistence.jdbc.password" value="${DB_PASSWORD}"/>
 
-            <!-- Hibernate configura la base de datos -->
+            
             <property name="hibernate.hbm2ddl.auto" value="create"/>
 
             <!-- Mostrar consultas SQL en consola -->

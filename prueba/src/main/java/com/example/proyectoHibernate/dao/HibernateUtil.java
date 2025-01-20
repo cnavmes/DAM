@@ -3,29 +3,63 @@ package com.example.proyectoHibernate.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HibernateUtil {
 
-  private static EntityManagerFactory entityManagerFactory;
+  private static HibernateUtil instance;
+  private EntityManagerFactory entityManagerFactory;
 
-  // Método para obtener el EntityManagerFactory
-  public static EntityManagerFactory getEntityManagerFactory() {
+  private HibernateUtil() {
+  }
+
+  // Método para obtener una instancia única (si quieres usar Singleton)
+  public static HibernateUtil getInstance() {
+    if (instance == null) {
+      instance = new HibernateUtil();
+    }
+    return instance;
+  }
+
+  // Método para crear EntityManagerFactory con credenciales
+  public EntityManagerFactory createEntityManagerFactory(String username, String password) {
     if (entityManagerFactory == null) {
-      // Crear el EntityManagerFactory a partir de la configuración de persistence.xml
-      entityManagerFactory = Persistence.createEntityManagerFactory("persistencia");
+      Map<String, String> properties = new HashMap<>();
+      properties.put("hibernate.connection.username", username);
+      properties.put("hibernate.connection.password", password);
+      properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/usuarios");
+      properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+
+      // Crear la instancia de EntityManagerFactory
+      entityManagerFactory = Persistence.createEntityManagerFactory("persistencia", properties);
     }
     return entityManagerFactory;
   }
 
-  // Método para obtener un EntityManager
-  public static EntityManager getEntityManager() {
-    return getEntityManagerFactory().createEntityManager();
+  public boolean validarCredenciales(String username, String password) {
+    try {
+      createEntityManagerFactory(username, password);
+      return true;
+    } catch (PersistenceException e) {
+      return false;
+    }
   }
 
-  // Método para cerrar el EntityManagerFactory
-  public static void closeEntityManagerFactory() {
+  // Cerrar el EntityManagerFactory
+  public void closeEntityManagerFactory() {
     if (entityManagerFactory != null) {
       entityManagerFactory.close();
+      entityManagerFactory = null;
     }
+  }
+
+  // Obtener un EntityManager
+  public EntityManager getEntityManager() {
+    if (entityManagerFactory == null) {
+      throw new IllegalStateException("EntityManagerFactory no está inicializado.");
+    }
+    return entityManagerFactory.createEntityManager();
   }
 }
