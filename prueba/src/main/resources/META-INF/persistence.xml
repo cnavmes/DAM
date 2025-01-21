@@ -15,14 +15,14 @@
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 
             
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/usuarios"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/hibernate"/>
 
             
             <property name="jakarta.persistence.jdbc.user" value="${DB_USER}"/>
             <property name="jakarta.persistence.jdbc.password" value="${DB_PASSWORD}"/>
 
             
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
 
             <!-- Mostrar consultas SQL en consola -->
             <property name="hibernate.show_sql" value="true"/>

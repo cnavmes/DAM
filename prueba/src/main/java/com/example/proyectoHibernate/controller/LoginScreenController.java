@@ -2,13 +2,14 @@ package com.example.proyectoHibernate.controller;
 
 import com.example.proyectoHibernate.dao.HibernateUtil;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginScreenController {
 
@@ -34,7 +35,18 @@ public class LoginScreenController {
       return;
     }
     if (HibernateUtil.getInstance().validarCredenciales(usuario, password)) {
-      mostrarAlerta("Exito", "Sesión iniciada correctamente");
+      try {
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("/com/example/proyectoHibernate/view/MainScreenController.fxml"));
+        Stage stage = (Stage) btnInicio.getScene().getWindow();
+        stage.setScene(new Scene(loader.load()));
+        stage.centerOnScreen();
+        stage.setTitle("Gestión de incidencias");
+        stage.show();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+
     } else {
       mostrarAlerta("Error", "Usuario o contraseña incorrectos");
     }

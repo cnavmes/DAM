@@ -15,7 +15,7 @@ public class HibernateUtil {
   private HibernateUtil() {
   }
 
-  // Método para obtener una instancia única (si quieres usar Singleton)
+  // Método para obtener una instancia única (Singleton)
   public static HibernateUtil getInstance() {
     if (instance == null) {
       instance = new HibernateUtil();
@@ -23,13 +23,13 @@ public class HibernateUtil {
     return instance;
   }
 
-  // Método para crear EntityManagerFactory con credenciales
+  // Método para crear EntityManagerFactory con credenciales dinámicas
   public EntityManagerFactory createEntityManagerFactory(String username, String password) {
     if (entityManagerFactory == null) {
       Map<String, String> properties = new HashMap<>();
       properties.put("hibernate.connection.username", username);
       properties.put("hibernate.connection.password", password);
-      properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/usuarios");
+      properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3307/hibernate");
       properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 
       // Crear la instancia de EntityManagerFactory

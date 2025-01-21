@@ -1,0 +1,138 @@
+body {
+  background-color: #f4f7fc;
+  /* Fondo gris claro */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  /* Fondo blanco para el contenedor */
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #4e73df;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+.form-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input.form-control {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 5px rgba(78, 115, 223, 0.6);
+}
+
+button.btn-primary {
+  background-color: #4e73df;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #3b5cd1;
+}
+
+
+ul.list-group {
+  list-style-type: none;
+  padding: 0;
+}
+
+li.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f9fc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+li.list-group-item:hover {
+  background-color: #e9ecef;
+}
+
+li.completed {
+  background-color: #e9ecef;
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+
+span {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  color: #495057;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+span:hover {
+  color: #4e73df;
+}
+
+button.btn-danger {
+  background-color: #e74a3b;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+
+p.text-muted {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+
+button {
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

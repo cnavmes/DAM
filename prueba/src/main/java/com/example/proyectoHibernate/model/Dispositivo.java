@@ -14,11 +14,9 @@ public class Dispositivo {
 
   private String dispositivo;
 
-  // Constructor vacío para Hibernate
   public Dispositivo() {
   }
 
-  // Constructor con parámetros
   public Dispositivo(String dispositivo) {
     this.dispositivo = dispositivo;
   }
@@ -38,5 +36,10 @@ public class Dispositivo {
 
   public void setDispositivo(String dispositivo) {
     this.dispositivo = dispositivo;
+  }
+
+  @Override
+  public String toString() {
+    return dispositivo;
   }
 }
