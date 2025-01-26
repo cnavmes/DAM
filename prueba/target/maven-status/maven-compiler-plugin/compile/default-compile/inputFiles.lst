@@ -1,9 +1,9 @@
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\controller\MainScreenController.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\model\Incidencia.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\dao\HibernateUtil.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\Main.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\model\TipoIncidencia.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\dao\IncidenciaDao.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\dao\DispositivoDao.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\model\Dispositivo.java
-C:\DEV\DAM\prueba\src\main\java\com\example\proyectoHibernate\controller\LoginScreenController.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/controller/LoginScreenController.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/model/Dispositivo.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/controller/MainScreenController.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/Main.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/dao/HibernateUtil.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/dao/IncidenciaDao.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/model/TipoIncidencia.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/dao/DispositivoDao.java
+/Volumes/MacEx/Mac Externo/DEV/DAM/prueba/src/main/java/com/example/proyectoHibernate/model/Incidencia.java

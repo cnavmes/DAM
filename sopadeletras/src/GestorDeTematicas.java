@@ -38,8 +38,7 @@ public class GestorDeTematicas {
           while ((linea = br.readLine()) != null) {
             palabras.add(linea.toUpperCase());
           }
-          tematicas.add(new Tematica(nombreTematica, palabras.toArray(new String[0]))); // Esto crea un nuevo array con
-                                                                                        // la longitud precisa
+          tematicas.add(new Tematica(nombreTematica, palabras.toArray(new String[0])));
         } catch (IOException e) {
           System.out.println("Error al leer el archivo: " + archivo.getName());
         }
@@ -49,6 +48,8 @@ public class GestorDeTematicas {
 
   public void iniciarJuego() {
     int opcion;
+    Tematica seleccionada;
+    SopaDeLetras sopa;
 
     if (tematicas.isEmpty()) {
       System.out.println("No hay temáticas cargadas");
@@ -59,17 +60,21 @@ public class GestorDeTematicas {
         System.out.println((i + 1) + ". " + tematicas.get(i).getNombre());
       }
       System.out.println("Selecciona una tematica");
-      opcion = sc.nextInt();
-      sc.nextLine();
+      try {
+        opcion = sc.nextInt();
+      } catch (Exception e) {
+        System.out.println("Por favor, ingrese un número.");
+        sc.nextLine();
+        opcion = -1;
+
+      }
 
       if (opcion < 1 || opcion > tematicas.size()) {
         System.out.println("Opcion no valida");
       } else {
-        Tematica seleccionada = tematicas.get(opcion - 1);
-        SopaDeLetras sopa = new SopaDeLetras(10, 10, seleccionada);
-        // TODO
-        sopa.mostrarTablero();
-        // TODO
+        seleccionada = tematicas.get(opcion - 1);
+        sopa = new SopaDeLetras(10, 10, seleccionada);
+
         sopa.jugar();
       }
     }
@@ -92,7 +97,7 @@ public class GestorDeTematicas {
   }
 
   private void guardarTematica(String nombre, List<String> palabras) {
-    File archivo = new File(ruta + nombre + ".txt");
+    File archivo = new File(ruta, nombre + ".txt");
 
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
       for (String palabra : palabras) {
