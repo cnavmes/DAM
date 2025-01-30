@@ -41,4 +41,24 @@ public class Incidencia {
     this.tipo = tipo;
   }
 
+  public int getId() {
+    return id;
+  }
+
+  public String getDescripcion() {
+    return descripcion;
+  }
+
+  public LocalDate getFecha() {
+    return fecha;
+  }
+
+  public Dispositivo getDispositivo() {
+    return dispositivo;
+  }
+
+  public TipoIncidencia getTipo() {
+    return tipo;
+  }
+
 }

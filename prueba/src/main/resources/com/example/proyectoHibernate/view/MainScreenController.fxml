@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoHibernate.controller.MainScreenController">
    <children>
       <VBox prefHeight="600.0" prefWidth="218.0" style="-fx-background-color: black;">
@@ -99,8 +98,11 @@
          <children>
             <TableView fx:id="tabla" layoutX="14.0" layoutY="14.0" prefHeight="272.0" prefWidth="557.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="colIdDispositivo" prefWidth="99.20001220703125" text="IdDispositivo" />
+                  <TableColumn fx:id="colDescripcion" prefWidth="196.79998779296875" text="Descripción" />
+                  <TableColumn fx:id="colFecha" prefWidth="116.0" text="Fecha" />
+                  <TableColumn fx:id="colTipo" prefWidth="68.20001220703125" text="Tipo" />
               </columns>
             </TableView>
             <PieChart fx:id="pieChart" layoutX="110.0" layoutY="300.0" prefHeight="292.0" prefWidth="365.0" />

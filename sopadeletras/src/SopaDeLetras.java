@@ -166,6 +166,7 @@ public class SopaDeLetras {
         char letra = tablero[i][j];
 
         // Comprobar si esta coordenada está en las palabras encontradas
+
         boolean esParteDePalabra = false;
         for (List<int[]> coordenadasPalabra : palabrasEncontradas) {
           for (int[] coordenada : coordenadasPalabra) {
