@@ -1,1 +1,25 @@
-<p>tareas works!</p>
+<div class="container mt-4">
+  <h1 class="text-center">Gestor de Tareas</h1>
+
+  <div class="input-group mb-3">
+    <input [(ngModel)]="nuevaTarea" class="form-control" placeholder="Nueva tarea">
+    <button class="btn btn-primary" (click)="agregarTarea()">Añadir</button>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let tarea of listaTareas"
+        [ngClass]="{ 'text-decoration-line-through': tarea.completada }">
+      
+      <span (click)="toggleTarea(tarea)" class="cursor-pointer">
+        {{ tarea.nombre }}
+      </span>
+
+      <button class="btn btn-danger btn-sm" (click)="eliminarTarea(tarea)">❌</button>
+    </li>
+  </ul>
+
+  <p *ngIf="listaTareas.length === 0" class="text-center mt-3 text-muted">
+    No hay tareas pendientes.
+  </p>
+</div>
