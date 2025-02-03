@@ -29,7 +29,7 @@ public class HibernateUtil {
       Map<String, String> properties = new HashMap<>();
       properties.put("hibernate.connection.username", username);
       properties.put("hibernate.connection.password", password);
-      properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/hibernate");
+      properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/usuarios");
       properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 
       // Crear la instancia de EntityManagerFactory

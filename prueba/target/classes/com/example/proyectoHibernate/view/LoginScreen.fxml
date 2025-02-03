@@ -2,29 +2,51 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.proyectoHibernate.controller.LoginScreenController">
-    <padding>
-        <Insets bottom="25" left="25" right="25" top="25" />
-    </padding>
-    <TextField fx:id="txtUsuario" promptText="Usuario" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-    <PasswordField fx:id="txtPassword" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <Button fx:id="btnInicio" onAction="#onBtnClick" text="Iniciar Sesión" GridPane.columnIndex="1" GridPane.rowIndex="2">
-      <GridPane.margin>
-         <Insets left="35.0" />
-      </GridPane.margin></Button>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-</GridPane>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1"
+           fx:controller="com.example.proyectoHibernate.controller.LoginScreenController"
+           style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #6c97c2);">
+
+    <VBox alignment="CENTER" spacing="15">
+        <children>
+            <!-- Contenedor con sombra para el formulario -->
+            <VBox spacing="15" alignment="CENTER"
+                  style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 20px; -fx-padding: 30px;">
+                <effect>
+                    <DropShadow radius="10.0" color="rgba(0, 0, 0, 0.3)"/>
+                </effect>
+
+                <Text text="Iniciar Sesión"
+                      style="-fx-fill: white; -fx-font-size: 24px; -fx-font-family: 'Helvetica Neue', sans-serif; -fx-font-weight: bold;"/>
+
+                <VBox spacing="10">
+                    <Label text="Usuario:" textFill="white"
+                           style="-fx-font-family: 'Helvetica Neue', sans-serif; -fx-font-size: 14px;"/>
+                    <TextField fx:id="txtUsuario" promptText="Usuario"
+                               style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-text-fill: black; 
+                               -fx-prompt-text-fill: #7f8c8d; -fx-border-radius: 15px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+
+                    <Label text="Contraseña:" textFill="white"
+                           style="-fx-font-family: 'Helvetica Neue', sans-serif; -fx-font-size: 14px;"/>
+                    <PasswordField fx:id="txtPassword" promptText="Contraseña"
+                                   style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-text-fill: black; 
+                                   -fx-prompt-text-fill: #7f8c8d; -fx-border-radius: 15px; -fx-padding: 10px; -fx-font-size: 14px;"/>
+                </VBox>
+
+                <Button fx:id="btnInicio" onAction="#onBtnClick" text="Iniciar Sesión"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; 
+                        -fx-font-family: 'Helvetica Neue', sans-serif; -fx-font-size: 16px; 
+                        -fx-border-radius: 20px; -fx-padding: 12px 20px; 
+                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;"/>
+            </VBox>
+        </children>
+    </VBox>
+</StackPane>
