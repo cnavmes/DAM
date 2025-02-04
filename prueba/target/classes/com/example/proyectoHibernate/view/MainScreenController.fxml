@@ -38,11 +38,11 @@
                 <CheckBox fx:id="checkBoxMedia" style="-fx-font-size: 14px;" text="Media" textFill="WHITE" />
                 <CheckBox fx:id="checkBoxUrgente" style="-fx-font-size: 14px;" text="Urgente" textFill="WHITE" />
             </VBox>
-            <Button fx:id="btnBorrarFiltros" onAction="#borrarFiltros" mnemonicParsing="false" text="Borrar filtros" />
+            <Button fx:id="btnBorrarFiltros" mnemonicParsing="false" onAction="#borrarFiltros" text="Borrar filtros" />
 
             <Separator opacity="0.5" />
 
-            <Button fx:id="btnCrearIncidencia" style="-fx-background-color: #3498db; -fx-text-fill: white;                      -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px;                      -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Crear Incidencia" />
+            <Button fx:id="btnAdministrar" onAction="#btnAdministrarClick" style="-fx-background-color: #3498db; -fx-text-fill: white;                      -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px;                      -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Administrar" />
 
             <Button fx:id="btnCerrarSesion" onAction="#cerrarSesionClicked" style="-fx-background-color: #e74c3c; -fx-text-fill: white;                      -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px;                      -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Cerrar Sesión" />
         </VBox>

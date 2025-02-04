@@ -25,6 +25,15 @@ public class IncidenciaDao {
     return entityManager.createQuery("FROM Incidencia", Incidencia.class).getResultList();
   }
 
+  // Método para obtener incidencias por dispositivo
+  public List<Incidencia> obtenerPorDispositivo(int dispositivoId) {
+    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    return entityManager
+        .createQuery("FROM Incidencia i WHERE i.dispositivo.id = :dispositivoId", Incidencia.class)
+        .setParameter("dispositivoId", dispositivoId)
+        .getResultList();
+  }
+
   // Método para obtener incidencias filtradas por dispositivo y tipo
   public List<Incidencia> obtenerPorDispositivoYTipo(int dispositivoId, String tipoIncidencia) {
     EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia

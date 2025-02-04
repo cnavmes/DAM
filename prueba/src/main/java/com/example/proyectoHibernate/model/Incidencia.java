@@ -29,6 +29,26 @@ public class Incidencia {
   @Enumerated(EnumType.STRING)
   private TipoIncidencia tipo;
 
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public void setDispositivo(Dispositivo dispositivo) {
+    this.dispositivo = dispositivo;
+  }
+
+  public void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+  }
+
+  public void setFecha(LocalDate fecha) {
+    this.fecha = fecha;
+  }
+
+  public void setTipo(TipoIncidencia tipo) {
+    this.tipo = tipo;
+  }
+
   // Constructor vacío para Hibernate
   public Incidencia() {
   }

@@ -59,9 +59,6 @@ public class MainScreenController implements Initializable {
   private Button btnCerrarSesion;
 
   @FXML
-  private Button btnCrearIncidencia;
-
-  @FXML
   private CheckBox checkBoxLeve;
 
   @FXML
@@ -82,6 +79,9 @@ public class MainScreenController implements Initializable {
   @FXML
   private Button btnBorrarFiltros;
 
+  @FXML
+  private Button btnAdministrar;
+
   private ObservableList<Incidencia> incidenciasObservable = FXCollections.observableArrayList();
 
   private IncidenciaDao incidenciaDao;
@@ -89,10 +89,11 @@ public class MainScreenController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     incidenciaDao = new IncidenciaDao();
-    cargarDatosPieChart();
+
     cargarCombo();
     cargarTabla();
     configurarFiltros();
+    cargarDatosPieChart();
 
   }
 
@@ -124,8 +125,18 @@ public class MainScreenController implements Initializable {
   }
 
   @FXML
-  void crearIncidenciaClicked(ActionEvent event) {
-
+  void btnAdministrarClick(ActionEvent event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(
+          getClass().getResource("/com/example/proyectoHibernate/view/AdministrarScreen.fxml"));
+      Parent root = loader.load();
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      stage.setScene(new Scene(root));
+      stage.centerOnScreen(); // Centrar la ventana
+      stage.show();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   private void cargarCombo() {
@@ -183,6 +194,7 @@ public class MainScreenController implements Initializable {
       colTipo.setCellValueFactory(cellData -> new SimpleStringProperty(
           cellData.getValue().getTipo() != null ? cellData.getValue().getTipo().toString() : "Sin tipo"));
     });
+
     Rectangle clip = new Rectangle(tabla.getWidth(), tabla.getHeight());
     clip.setArcWidth(20);
     clip.setArcHeight(20);
@@ -277,7 +289,7 @@ public class MainScreenController implements Initializable {
 
   private void cargarDatosPieChart() {
     List<Incidencia> incidencias = incidenciaDao.obtenerTodos();
-    // Lógica para agregar los datos de incidencias al pie chart
+
     actualizarPieChart(new FilteredList<>(FXCollections.observableArrayList(incidencias), p -> true));
 
     Rectangle clipPie = new Rectangle(pieChart.getWidth(), pieChart.getHeight());
