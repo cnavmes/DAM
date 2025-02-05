@@ -171,6 +171,7 @@ public class AdministrarScreenController implements Initializable {
 
     try {
       dao.guardar(nuevoDispositivo);
+      txtNombre.clear();
       mostrarAlerta(AlertType.INFORMATION, "Éxito", "Dispositivo agregado correctamente.");
       cargarComboDispositivo(); // Recargar el comboBox de dispositivos
     } catch (Exception e) {
@@ -207,12 +208,79 @@ public class AdministrarScreenController implements Initializable {
 
     try {
       incidenciaDao.guardar(nuevaIncidencia);
+      resetearCampos();
       mostrarAlerta(AlertType.INFORMATION, "Éxito", "Incidencia creada correctamente.");
       cargarTabla(); // Recargar la tabla de incidencias
     } catch (Exception e) {
       mostrarAlerta(AlertType.ERROR, "Error", "Hubo un problema al crear la incidencia.");
       e.printStackTrace();
     }
+  }
+
+  @FXML
+  void actualizarIncidenciaClicked(ActionEvent event) {
+    Dispositivo dispositivoSeleccionado = comboDispositivo.getValue();
+    Incidencia incidenciaSeleccionada = comboIncidencia.getValue();
+    String tipoIncidenciaStr = comboTipo.getValue();
+    String descripcion = txtDescripcion.getText().trim();
+    LocalDate fecha = datePicker1.getValue();
+
+    if (dispositivoSeleccionado == null || incidenciaSeleccionada == null || tipoIncidenciaStr == null
+        || descripcion.isEmpty() || fecha == null) {
+      mostrarAlerta(AlertType.ERROR, "Error", "Todos los campos deben estar rellenos.");
+      return;
+    }
+
+    TipoIncidencia tipoIncidencia;
+    try {
+      tipoIncidencia = TipoIncidencia.valueOf(tipoIncidenciaStr.toUpperCase());
+    } catch (IllegalArgumentException e) {
+      mostrarAlerta(AlertType.ERROR, "Error", "Tipo de incidencia no válido.");
+      return;
+    }
+
+    incidenciaSeleccionada.setDispositivo(dispositivoSeleccionado);
+    incidenciaSeleccionada.setTipo(tipoIncidencia);
+    incidenciaSeleccionada.setDescripcion(descripcion);
+    incidenciaSeleccionada.setFecha(fecha);
+
+    try {
+      incidenciaDao.actualizar(incidenciaSeleccionada);
+      mostrarAlerta(AlertType.INFORMATION, "Éxito", "Incidencia actualizada correctamente.");
+      cargarTabla(); // Recargar la tabla de incidencias
+      resetearCampos(); // Resetear los campos
+    } catch (Exception e) {
+      mostrarAlerta(AlertType.ERROR, "Error", "Hubo un problema al actualizar la incidencia.");
+      e.printStackTrace();
+    }
+  }
+
+  @FXML
+  void completarIncidenciaClicked(ActionEvent event) {
+    Incidencia incidenciaSeleccionada = comboIncidencia.getValue();
+
+    if (incidenciaSeleccionada == null) {
+      mostrarAlerta(AlertType.ERROR, "Error", "Debe seleccionar una incidencia.");
+      return;
+    }
+
+    try {
+      incidenciaDao.eliminar(incidenciaSeleccionada);
+      mostrarAlerta(AlertType.INFORMATION, "Éxito", "Incidencia completada y eliminada correctamente.");
+      cargarTabla();
+      resetearCampos();
+    } catch (Exception e) {
+      mostrarAlerta(AlertType.ERROR, "Error", "Hubo un problema al completar la incidencia.");
+      e.printStackTrace();
+    }
+  }
+
+  private void resetearCampos() {
+    comboDispositivo.setValue(null);
+    comboIncidencia.setValue(null);
+    comboTipo.setValue(null);
+    datePicker1.setValue(null);
+    txtDescripcion.clear();
   }
 
   private void mostrarAlerta(AlertType tipo, String titulo, String mensaje) {

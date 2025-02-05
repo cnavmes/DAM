@@ -59,9 +59,9 @@
                     <Label style="-fx-font-family: 'Helvetica Neue', sans-serif; -fx-font-size: 17px;" text="Descripción:" textFill="#1b1b1b" />
                     <TextArea fx:id="txtDescripcion" prefHeight="97.0" prefWidth="212.0" />
                     <HBox spacing="10">
-                        <Button fx:id="btnActualizar" mnemonicParsing="false" prefHeight="44.0" prefWidth="182.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Actualizar incidencia" />
+                        <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarIncidenciaClicked" prefHeight="44.0" prefWidth="182.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Actualizar incidencia" />
                         <Button fx:id="btnCrearIncidencia" mnemonicParsing="false" onAction="#crearIncidenciaClicked" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Crear Incidencia" />
-                        <Button fx:id="btnCompletar" mnemonicParsing="false" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Completar Incidencia" />
+                        <Button fx:id="btnCompletar" mnemonicParsing="false" onAction="#completarIncidenciaClicked" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 16px; -fx-border-radius: 20px; -fx-padding: 12px 20px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3); -fx-cursor: hand;" text="Completar Incidencia" />
                     </HBox>
                 </VBox>
             </children>
