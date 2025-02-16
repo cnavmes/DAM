@@ -132,7 +132,7 @@ public class MainScreenController implements Initializable {
       Parent root = loader.load();
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setScene(new Scene(root));
-      stage.centerOnScreen(); // Centrar la ventana
+      stage.centerOnScreen();
       stage.show();
     } catch (Exception e) {
       e.printStackTrace();
@@ -182,8 +182,8 @@ public class MainScreenController implements Initializable {
         System.out.println("No hay incidencias en la base de datos.");
       }
 
-      incidenciasObservable.setAll(incidencias); // Actualiza la lista observable
-      tabla.setItems(incidenciasObservable); // Establece la lista en la tabla
+      incidenciasObservable.setAll(incidencias);
+      tabla.setItems(incidenciasObservable);
 
       colID.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
       colDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
@@ -215,10 +215,8 @@ public class MainScreenController implements Initializable {
     datePicker.setOnAction(e -> aplicarFiltros(filteredData));
     comboDispositivo.setOnAction(e -> aplicarFiltros(filteredData));
 
-    // Llamar a aplicarFiltros inicialmente para reflejar los valores por defecto
     aplicarFiltros(filteredData);
 
-    // Asignar la lista filtrada a la tabla
     tabla.setItems(filteredData);
   }
 

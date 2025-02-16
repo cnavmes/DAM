@@ -210,7 +210,7 @@ public class AdministrarScreenController implements Initializable {
       incidenciaDao.guardar(nuevaIncidencia);
       resetearCampos();
       mostrarAlerta(AlertType.INFORMATION, "Éxito", "Incidencia creada correctamente.");
-      cargarTabla(); // Recargar la tabla de incidencias
+      cargarTabla();
     } catch (Exception e) {
       mostrarAlerta(AlertType.ERROR, "Error", "Hubo un problema al crear la incidencia.");
       e.printStackTrace();
@@ -247,8 +247,8 @@ public class AdministrarScreenController implements Initializable {
     try {
       incidenciaDao.actualizar(incidenciaSeleccionada);
       mostrarAlerta(AlertType.INFORMATION, "Éxito", "Incidencia actualizada correctamente.");
-      cargarTabla(); // Recargar la tabla de incidencias
-      resetearCampos(); // Resetear los campos
+      cargarTabla();
+      resetearCampos();
     } catch (Exception e) {
       mostrarAlerta(AlertType.ERROR, "Error", "Hubo un problema al actualizar la incidencia.");
       e.printStackTrace();
@@ -393,8 +393,8 @@ public class AdministrarScreenController implements Initializable {
         System.out.println("No hay incidencias en la base de datos.");
       }
 
-      incidenciasObservable.setAll(incidencias); // Actualiza la lista observable
-      tabla.setItems(incidenciasObservable); // Establece la lista en la tabla
+      incidenciasObservable.setAll(incidencias);
+      tabla.setItems(incidenciasObservable);
 
       colID.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
       colDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));

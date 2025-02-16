@@ -10,28 +10,28 @@ public class DispositivoDao {
   private HibernateUtil hibernateUtil;
 
   public DispositivoDao() {
-    hibernateUtil = HibernateUtil.getInstance(); // Crear instancia de HibernateUtil
+    hibernateUtil = HibernateUtil.getInstance();
   }
 
   // Método para obtener un dispositivo por su ID
   public Dispositivo obtenerPorId(int id) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     return entityManager.find(Dispositivo.class, id);
   }
 
   // Método para obtener todos los dispositivos
   public List<Dispositivo> obtenerTodos() {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     return entityManager.createQuery("FROM Dispositivo", Dispositivo.class).getResultList();
   }
 
   // Método para guardar un nuevo dispositivo
   public void guardar(Dispositivo dispositivo) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
-      entityManager.persist(dispositivo); // Guardar el dispositivo
+      entityManager.persist(dispositivo);
       transaction.commit();
     } catch (RuntimeException e) {
       if (transaction.isActive()) {
@@ -45,11 +45,11 @@ public class DispositivoDao {
 
   // Método para actualizar un dispositivo existente
   public void actualizar(Dispositivo dispositivo) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
-      entityManager.merge(dispositivo); // Actualizar el dispositivo
+      entityManager.merge(dispositivo);
       transaction.commit();
     } catch (RuntimeException e) {
       if (transaction.isActive()) {
@@ -63,12 +63,12 @@ public class DispositivoDao {
 
   // Método para eliminar un dispositivo
   public void eliminar(Dispositivo dispositivo) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
-      dispositivo = entityManager.merge(dispositivo); // Asegura que el dispositivo esté gestionado
-      entityManager.remove(dispositivo); // Eliminar el dispositivo
+      dispositivo = entityManager.merge(dispositivo);
+      entityManager.remove(dispositivo);
       transaction.commit();
     } catch (RuntimeException e) {
       if (transaction.isActive()) {

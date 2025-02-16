@@ -15,19 +15,19 @@ public class IncidenciaDao {
 
   // Método para obtener una incidencia por su ID
   public Incidencia obtenerPorId(int id) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     return entityManager.find(Incidencia.class, id);
   }
 
   // Método para obtener todas las incidencias
   public List<Incidencia> obtenerTodos() {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     return entityManager.createQuery("FROM Incidencia", Incidencia.class).getResultList();
   }
 
   // Método para obtener incidencias por dispositivo
   public List<Incidencia> obtenerPorDispositivo(int dispositivoId) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     return entityManager
         .createQuery("FROM Incidencia i WHERE i.dispositivo.id = :dispositivoId", Incidencia.class)
         .setParameter("dispositivoId", dispositivoId)
@@ -36,7 +36,7 @@ public class IncidenciaDao {
 
   // Método para obtener incidencias filtradas por dispositivo y tipo
   public List<Incidencia> obtenerPorDispositivoYTipo(int dispositivoId, String tipoIncidencia) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     return entityManager
         .createQuery("FROM Incidencia i WHERE i.dispositivo.id = :dispositivoId AND i.tipo = :tipoIncidencia",
             Incidencia.class)
@@ -47,11 +47,11 @@ public class IncidenciaDao {
 
   // Método para guardar una nueva incidencia
   public void guardar(Incidencia incidencia) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
-      entityManager.persist(incidencia); // Guardar la incidencia
+      entityManager.persist(incidencia);
       transaction.commit();
     } catch (RuntimeException e) {
       if (transaction.isActive()) {
@@ -65,11 +65,11 @@ public class IncidenciaDao {
 
   // Método para actualizar una incidencia existente
   public void actualizar(Incidencia incidencia) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
-      entityManager.merge(incidencia); // Actualizar la incidencia
+      entityManager.merge(incidencia);
       transaction.commit();
     } catch (RuntimeException e) {
       if (transaction.isActive()) {
@@ -83,12 +83,12 @@ public class IncidenciaDao {
 
   // Método para eliminar una incidencia
   public void eliminar(Incidencia incidencia) {
-    EntityManager entityManager = hibernateUtil.getEntityManager(); // Usar instancia
+    EntityManager entityManager = hibernateUtil.getEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
     try {
       transaction.begin();
       incidencia = entityManager.merge(incidencia); // Asegura que la incidencia esté gestionada
-      entityManager.remove(incidencia); // Eliminar la incidencia
+      entityManager.remove(incidencia);
       transaction.commit();
     } catch (RuntimeException e) {
       if (transaction.isActive()) {
