@@ -24,7 +24,7 @@
             
             <property name="hibernate.hbm2ddl.auto" value="update"/>
 
-            <!-- Mostrar consultas SQL en consola -->
+            <!-- Muestra consultas SQL en consola -->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
         </properties>

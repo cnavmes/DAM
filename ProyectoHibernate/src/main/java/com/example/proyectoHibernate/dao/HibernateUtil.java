@@ -32,7 +32,7 @@ public class HibernateUtil {
       properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/usuarios");
       properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 
-      // Crear la instancia de EntityManagerFactory
+      // Crea la instancia de EntityManagerFactory
       entityManagerFactory = Persistence.createEntityManagerFactory("persistencia", properties);
     }
     return entityManagerFactory;

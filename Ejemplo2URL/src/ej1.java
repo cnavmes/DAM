@@ -41,7 +41,7 @@ public class ej1 {
     } catch (UnknownHostException e) {
       System.err.println("Error en pruebaMetodos: " + e.getMessage());
     }
-    return sb.toString();
+    return sb.toString()
   }
 
 }

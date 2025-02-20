@@ -21,7 +21,6 @@ public class Dispositivo {
     this.dispositivo = dispositivo;
   }
 
-  // Getters y setters
   public int getId() {
     return id;
   }
